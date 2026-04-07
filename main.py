@@ -1,5 +1,4 @@
 """
-from keep_alive import keep_alive
 Telegram Bot entry point for the Pixel 10 Pro Google One Gemini Bot.
 
 Commands:
@@ -27,6 +26,7 @@ from telegram.ext import (
 import config
 from device_simulator import create_device_profile
 from google_automation import GoogleAutomationError, check_gemini_offer
+from keep_alive import keep_alive  # تم نقل الاستدعاء إلى المكان الصحيح هنا
 
 # ── Logging ───────────────────────────────────────────────────────────────────
 logging.basicConfig(level=config.LOG_LEVEL, format=config.LOG_FORMAT)
@@ -257,6 +257,9 @@ def main() -> None:
             "Set it in Replit Secrets and restart."
         )
         sys.exit(1)
+
+    # تشغيل الخادم الوهمي لإبقاء البوت مستيقظاً على Render
+    keep_alive()
 
     app = Application.builder().token(token).build()
 
