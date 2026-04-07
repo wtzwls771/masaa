@@ -1,4 +1,5 @@
 """
+from keep_alive import keep_alive
 Telegram Bot entry point for the Pixel 10 Pro Google One Gemini Bot.
 
 Commands:
